@@ -1,0 +1,21 @@
+git clone https://github.com/Nadaan00/responsi-213110021.git
+
+ls
+
+cd responsi-213110021
+
+nano Dockefile
+FROM ubuntu
+RUN apt-get update && apt-get install -y apache2
+COPY index.html /var/www/html
+EXPOSE 80
+CMD ["apache2ctl", "-D", "FOREGROUND"]
+
+docker build -t responsi-213110021 .
+
+login
+
+docker tag responsi-213110021 nadaanisnurjihan/responsi-213110021
+docker push nadaanisnurjihan/responsi-213110021
+
+docker run -d -p 80:80 --name 213110021-webcv nadaanisnurjihan/responsi-213110021
